@@ -26,34 +26,31 @@
                     document
                 </h2>
                 <div class="-my-8 divide-y-2 divide-gray-100">
-                    {%for i in range(0, 5)%}
+                    {%for q in questions%}
 
                     <div
-                        class="py-8 my-10 flex flex-row border-2 rounded-lg border-gray-200 border-opacity-50 p-8 ">
+                        class="py-8 my-10 w-full flex flex-row border-2 rounded-lg border-gray-200 border-opacity-50 p-8 ">
 
                         <div class="w-5/8">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">The double ended queue which
-                                allows deletions at
-                                both
-                                ends of the list but insertion at only one end.</h2>
+                            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">{{q[0]}}</h2>
                             <div class="relative mb-0">
                                 <label for="option_a" class="leading-7 text-sm text-gray-600">Option A</label>
-                                <input type="option_a" id="option_a" name="option_a" value="Input restricted Queue"
+                                <input type="option_a" id="option_a" name="option_a" value="{{q[1]}}"
                                     class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
                             <div class="relative mb-0">
                                 <label for="option_b" class="leading-7 text-sm text-gray-600">Option B</label>
-                                <input type="option_b" id="option_b" name="option_b" value="Output restricted Queue"
+                                <input type="option_b" id="option_b" name="option_b" value="{{q[2]}}"
                                     class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
                             <div class="relative mb-0">
                                 <label for="option_c" class="leading-7 text-sm text-gray-600">Option C</label>
-                                <input type="option_c" id="option_c" name="option_c" value="Circular Queue"
+                                <input type="option_c" id="option_c" name="option_c" value="{{q[3]}}"
                                     class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
                             <div class="relative mb-0">
-                                <label for="option_d" class="leading-7 text-sm text-gray-600">Option D</label>
-                                <input type="option_d" id="option_d" name="option_d" value="Priority Queue"
+                                <label for="option_d" class="leading-7 text-sm text-gray-600">Option C</label>
+                                <input type="option_d" id="option_d" name="option_d" value="{{q[4]}}"
                                     class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             </div>
 
@@ -81,22 +78,13 @@
             class="text-gray-600 body-font flex flex-col overflow-hidden w-1/4 h-screen container px-5 py-12 mx-auto">
             <h2 class="text-xl mx-auto mb-5 text-blue-500 tracking-widest font-medium title-font text-center	">Images
                 found in the document</h2>
+                {%for i in imgpaths%}
             <div class="md:w-64 my-auto mx-auto flex flex-col item-center">
-                <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/722x402"
+                <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{i}}"
                     alt="content">
+                    
             </div>
-            <div class="md:w-64 my-auto mx-auto flex flex-col item-center">
-                <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/722x402"
-                    alt="content">
-            </div>
-            <div class="md:w-64 my-auto mx-auto flex flex-col item-center">
-                <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/722x402"
-                    alt="content">
-            </div>
-            <div class="md:w-64 my-auto mx-auto flex flex-col item-center">
-                <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/722x402"
-                    alt="content">
-            </div>
+            {%endfor%}
         </section>
     </section>
 
