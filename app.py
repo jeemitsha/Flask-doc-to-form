@@ -37,11 +37,11 @@ def form():
     data = read_docx("static\\test.docx")
     df = pd.DataFrame(data[0])
     df = df.dropna()
-    df = df.reset_index()
+    df = df.reset_index(drop=True)
     print(df.head(20))
     text, images_path = docx2txt.process("static\\test.docx", "./static/img")
     q_list = []
-    for i in range(len(df[1])):
+    for i in range(0,len(df[1]),5):
         try:
             q_list.append([df[1][i],df[1][i+1],df[1][i+2],df[1][i+3],df[1][i+4]])
         except:
