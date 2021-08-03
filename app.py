@@ -38,7 +38,6 @@ def form():
     df = pd.DataFrame(data[0])
     df = df.dropna()
     df = df.reset_index(drop=True)
-    print(df.head(20))
     text, images_path = docx2txt.process("static\\test.docx", "./static/img")
     q_list = []
     for i in range(0,len(df[1]),5):
@@ -46,10 +45,8 @@ def form():
             q_list.append([df[1][i],df[1][i+1],df[1][i+2],df[1][i+3],df[1][i+4]])
         except:
             break
-    print(q_list)
 
     return render_template("form.html", imgpaths=images_path, questions=q_list)
-
 
 if __name__ == "__main__":
     app.run(debug=True)
