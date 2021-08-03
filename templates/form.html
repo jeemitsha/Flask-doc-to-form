@@ -55,7 +55,8 @@
                             </div>
 
                         </div>
-                        <div class="dragarea mt-1 flex justify-center ml-3 w-3/8 px-6 pt-5 pb-6 border-2 border-gray-500 border-dashed rounded-md">
+                        <div
+                            class="dragarea mt-1 flex justify-center ml-3 w-3/8 px-6 pt-5 pb-6 border-2 border-gray-500 border-dashed rounded-md">
                             <!-- <div class="space-y-1 text-center">
                                 <i class="fa fa-upload fa-2x" aria-hidden="true"></i>
                                 <div class="flex text-sm text-gray-600">
@@ -78,63 +79,62 @@
             class="text-gray-600 body-font flex flex-col overflow-hidden w-1/4 h-screen container px-5 py-12 mx-auto">
             <h2 class="text-xl mx-auto mb-5 text-blue-500 tracking-widest font-medium title-font text-center	">Images
                 found in the document</h2>
-                {%for i in imgpaths%}
+            {%for i in imgpaths%}
             <div class="drag-img md:w-64 my-auto mx-auto flex flex-col item-center">
-                <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{i}}"
-                    alt="content">
-                    
+                <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{i}}" alt="content">
+
             </div>
             {%endfor%}
         </section>
     </section>
     <script>
         console.log('Hello');
-        
+
         var p = document.querySelectorAll('.drag-img');
         var choice = document.querySelectorAll('.dragarea');
-        
-        p.addEventListener('dragStart',dragStart);
-        p.addEventListener('dragEnd',dragEnd);
+
+        p.addEventListener('dragStart', dragStart);
+        p.addEventListener('dragEnd', dragEnd);
         // for(let i of p){
         //     i.addEventListener('dragStart',dragStart);
         //     i.addEventListener('dragEnd',dragEnd);
         // }
-        
-        function dragStart(){
-            setTimeout(()=>(this.className = 'invisible'),0);
+
+        function dragStart() {
+            setTimeout(() => (this.className = 'invisible'), 0);
             // console.log('drag start');
         }
-        
-        function dragEnd(){
+
+        function dragEnd() {
             this.className = '.drag-img';
             // console.log('drag end');
         }
-        
-        for(j of choice){
-            j.addEventListener('dragover',dragOver);
-            j.addEventListener('dragenter',dragEnter);
-            j.addEventListener('dragLeave',dragLeave);
-            j.addEventListener('drop',Drop);
+
+        for (j of choice) {
+            j.addEventListener('dragover', dragOver);
+            j.addEventListener('dragenter', dragEnter);
+            j.addEventListener('dragLeave', dragLeave);
+            j.addEventListener('drop', Drop);
         }
-        
-        function dragOver(e){
+
+        function dragOver(e) {
             e.preventDefault();
             this.style.border = "2px dotted";
             // console.log('drag over');
         }
-        function dragEnter(e){
+        function dragEnter(e) {
             e.preventDefault();
             // console.log('drag enter');
         }
-        function dragLeave(){
+        function dragLeave() {
             this.style.border = "2px dotted";
             // console.log('drag leave');
         }
-        function Drop(){
+        function Drop() {
             this.append(p);
             console.log('drop');
         }
-        </script>
+    </script>
 </body>
 
 </html>
