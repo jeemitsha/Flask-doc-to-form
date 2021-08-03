@@ -29,9 +29,9 @@
                     {%for i in range(0, 5)%}
 
                     <div
-                        class="py-8 my-10 mx-10 flex flex-wrap md:flex-nowrap flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
+                        class="py-8 my-10 flex flex-row border-2 rounded-lg border-gray-200 border-opacity-50 p-8 ">
 
-                        <div class="flex-grow">
+                        <div class="w-5/8">
                             <h2 class="text-gray-900 text-lg title-font font-medium mb-3">The double ended queue which
                                 allows deletions at
                                 both
@@ -58,9 +58,15 @@
                             </div>
 
                         </div>
-                        <div class="md:w-64 my-auto mx-8 flex flex-col item-center">
-                            <img class="h-40 rounded w-full object-cover object-center mb-6"
-                                src="https://dummyimage.com/722x402" alt="content">
+                        <div class="dragarea mt-1 flex justify-center ml-3 w-3/8 px-6 pt-5 pb-6 border-2 border-gray-500 border-dashed rounded-md">
+                            <div class="space-y-1 text-center">
+                                <i class="fa fa-upload fa-2x" aria-hidden="true"></i>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="file-upload">
+                                        <input type="file" id="input-file-max-fs" class="file-upload self-center" data-max-file-size="20M" />
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {%endfor%}
