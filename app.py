@@ -1,11 +1,20 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 import docx2txt
 import zipfile
 from lxml import etree
 import pandas as pd
 import os
+from flask_dropzone import Dropzone
+
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
+
+app.config.update(
+    UPLOADED_PATH = os.path.join(basedir, 'uploads'),
+    DROPZONE_MAX_FILE_SIZE = 1024,
+    DROPZONE_TIMEOUT = 5*60*1000
+)
 
 
 def read_docx(docx_file, **kwargs):
@@ -25,6 +34,14 @@ def read_docx(docx_file, **kwargs):
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ["doc", "docx"]
 
+dropzone = Dropzone(app)
+
+@app.route('/upload', methods=['POST', 'GET'])
+def upload():
+    if request.method == 'POST':
+        f = request.files.get('file')
+        f.save(os.path.join(app.config['UPLOADED_PATH'], f.filename))
+    return render_template('index.html')
 
 @app.route("/", methods=["GET", "POST"])
 def index():
